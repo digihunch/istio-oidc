@@ -7,7 +7,6 @@ extraArgs:
   cookie-expire: 4h
   set-authorization-header: true
   email-domain: "*"
-#  http-address: 0.0.0.0:4180
   upstream: static://200
   skip-provider-button: true
   whitelist-domain: demo.digihunch.com 

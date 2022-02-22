@@ -10,7 +10,7 @@ service:
     port: 443
     protocol: TCP
     targetPort: 8443
-  - name: http
+  - name: http     # Plain HTTP still needed for ACME config
     port: 80
     protocol: TCP
     targetPort: 8080

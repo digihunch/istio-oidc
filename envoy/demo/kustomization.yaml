@@ -6,7 +6,6 @@ resources:
   - workload.yaml
   - Certificate.yaml
   - Routing.yaml
-  - Auth.yaml
 patches:
   - target:
       kind: Gateway
@@ -32,17 +31,3 @@ patches:
         path: /spec/dnsNames
         value:
         - demo1.digihunch.com
-  - target:
-      kind: RequestAuthentication
-      name: istio-ingressgateway
-    patch: |-
-      - op: replace
-        path: /spec/jwtRules/0/issuer
-        value: https://accounts.google.com
-  - target:
-      kind: RequestAuthentication
-      name: istio-ingressgateway
-    patch: |-
-      - op: replace
-        path: /spec/jwtRules/0/jwksUri
-        value: https://www.googleapis.com/oauth2/v3/certs
