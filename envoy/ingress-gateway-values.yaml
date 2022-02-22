@@ -1,0 +1,27 @@
+name: istio-ingressgateway
+service:
+  type: LoadBalancer
+  ports:
+  - name: status-port
+    port: 15021
+    protocol: TCP
+    targetPort: 15020
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: 8443
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+annotations:
+  service.beta.kubernetes.io/azure-load-balancer-internal: "false"
+labels:
+  app: istio-ingressgateway
+  istio: ingressgateway
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+nodeSelector:
+  beta.kubernetes.io/os: linux

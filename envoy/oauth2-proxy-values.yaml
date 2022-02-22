@@ -1,0 +1,20 @@
+service:
+  portNumber: 4180
+extraArgs:
+  provider: oidc
+  cookie-samesite: lax
+  cookie-refresh: 1h
+  cookie-expire: 4h
+  set-authorization-header: true
+  email-domain: "*"
+#  http-address: 0.0.0.0:4180
+  upstream: static://200
+  skip-provider-button: true
+  whitelist-domain: demo.digihunch.com 
+  oidc-issuer-url: https://accounts.iam.com
+config:
+  clientID: "clientid"
+  clientSecret: "clientsecret"
+  cookieSecure: true
+  cookieSecret: "cookiesecret"
+  cookieName: "_oauth2_proxy_isio"
